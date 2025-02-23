@@ -9,6 +9,7 @@ import rehypeKatex from 'rehype-katex';
 
 const organizationName = "HotariTobu";
 const projectName = "tkmt-lab";
+const editUrl = "https://github.com/HotariTobu/tkmt-lab/tree/main/";
 
 const config: Config = {
   title: "髙松研の​学生に向けた​メッセージ",
@@ -91,6 +92,7 @@ const config: Config = {
         path: "main",
         routeBasePath: "main",
         sidebarPath: "./sidebars.ts",
+        editUrl,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
         remarkPlugins: [remarkMath],
@@ -104,6 +106,7 @@ const config: Config = {
         path: "extra",
         routeBasePath: "extra",
         sidebarPath: "./sidebars.ts",
+        editUrl,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
         remarkPlugins: [remarkMath],
