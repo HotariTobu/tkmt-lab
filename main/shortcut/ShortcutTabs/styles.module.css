@@ -1,0 +1,46 @@
+:root {
+    --key-bg: #f0f0f0;
+}
+
+[data-theme='dark'] {
+    --key-bg: #444;
+}
+
+
+.shortcutList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    user-select: none;
+
+    .item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+
+        .key {
+            display: contents;
+            font-size: 1.5rem;
+            font-weight: 600;
+
+            :where(& > :first-child) {
+                border-radius: 0.8rem;
+                padding: 0.5rem;
+                min-width: 4.5rem;
+                text-align: center;
+                background-color: var(--key-bg);
+
+                &:empty {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                :where(& > :last-child) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
