@@ -279,6 +279,8 @@ VSCodeの操作は全てコマンドパレットから行えます。
   mac={"Cmd + Shift + `"}
 />
 
+![Open Terminal](./img/open-terminal.gif)
+
 ## 全検索
 
 |意味|対象|
