@@ -201,6 +201,7 @@ const config: Config = {
     },
 
     prism: {
+      additionalLanguages: ['java'],
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
