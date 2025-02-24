@@ -1,4 +1,4 @@
-# Pythonのデバッグ
+# Javaのデバッグ
 
 ## デバッグすると
 
@@ -7,13 +7,13 @@
 
 ![Stop at Breakpoint](./img/stop-at-breakpoint.gif)
 
-この場合、19行目の処理が実行される直前で処理が止められています。
+この場合、3行目の処理が実行される直前で処理が止められています。
 
 関数の値が返される前に**ステップイン**すると、その関数に入れます。
 
 ![Step In](./img/step-in.gif)
 
-この場合、19行目から関数`calc_pi`に入りました。
+この場合、3行目から関数`calcPI`に入りました。
 引数`iteration`の値として`2`が渡されていることがわかります。
 
 **ステップオーバー**で1行ずつ処理を追うことができます。
@@ -31,13 +31,13 @@
 
 ![Step Out](./img/step-out.gif)
 
-この場合、関数`calc_pi`の残りの処理が終わってから、19行目に戻りました。
+この場合、関数`calcPI`の残りの処理が終わってから、3行目に戻りました。
 
 関数内の処理を追う必要がなければ、ブレイクポイントを設定せず、ステップオーバーします。
 
 ![Step Over](./img/step-over.gif)
 
-この場合、20行目の関数`calc_pi`の呼び出しでは、ブレイクが発生しませんでした。
+この場合、4行目の関数`calcPI`の呼び出しでは、ブレイクが発生しませんでした。
 
 **デバッグコンソール**を使うと、処理を止めた部分でほぼ任意のコードを実行できます。
 
@@ -54,7 +54,7 @@ Uncaught Exceptionsのチェックを入れておくとよいでしょう。
 
 ![Mistake](./img/mistake.gif)
 
-この場合、4行目で範囲外アクセスを行ったことにより、例外が発生したことがわかります。
+この場合、6行目で範囲外アクセスを行ったことにより、例外が発生したことがわかります。
 
 ## デバッグするには
 
@@ -62,7 +62,7 @@ Uncaught Exceptionsのチェックを入れておくとよいでしょう。
 
 |拡張機能|
 |:-:|
-|[Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)|
+|[Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)と[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)|
 
 行番号の左側をクリックして、好きな行にブレイクポイントを入れましょう。
 実行中にも追加できます。
@@ -78,35 +78,43 @@ Uncaught Exceptionsのチェックを入れておくとよいでしょう。
 
 デモに使用しているコードです。
 
-```py title="main.py"
-from math import sqrt
+```java title="Main.java"
+public class Main {
+    public static void main(String[] args) {
+        var iter_2 = calcPI(2);
+        var iter_3 = calcPI(3);
 
-def calc_pi(iteration: int):
-    a = 1
-    b = 1 / sqrt(2)
-    t = 1 / 4
-    p = 1
+        System.out.printf("PI 2 -> %.20f\n", iter_2);
+        System.out.printf("PI 3 -> %.20f\n", iter_3);
+    }
 
-    for _ in range(iteration):
-        an = (a + b) / 2
-        b = sqrt(a * b)
-        t -= p * (a - an) ** 2
-        p *= 2
-        a = an
+    private static double calcPI(int iteration) {
+        var a = 1.0;
+        var b = 1.0 / Math.sqrt(2.0);
+        var t = 1.0 / 4.0;
+        var p = 1.0;
 
-    return (a + b) ** 2 / (4 * t)
+        for (var i = 0; i < iteration; i++) {
+            var an = (a + b) / 2;
+            b = Math.sqrt(a * b);
+            t -= p * Math.pow(a - an, 2);
+            p *= 2;
+            a = an;
+        }
 
-if __name__ == '__main__':
-    iter_2 = calc_pi(2)
-    iter_3 = calc_pi(3)
-
-    print(f"PI 2 -> {iter_2:.20f}")
-    print(f"PI 3 -> {iter_3:.20f}")
+        return Math.pow(a + b, 2) / (4 * t);
+    }
+}
 ```
 
-```py title="mistake.py"
-list = [0, 1, 2, 3, 4]
+```java title="Mistake.java"
+public class Mistake {
+    public static void main(String[] args) {
+        int[] array = { 0, 1, 2, 3, 4 };
 
-for i in [1, 2, 3, 4, 5]:
-    print(f"No. i: {list[i]}")
+        for (var i = 1; i <= 5; i++) {
+            System.out.printf("No. %d: %d\n", i, array[i]);
+        }
+    }
+}
 ```
