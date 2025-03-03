@@ -1,35 +1,54 @@
 :root {
     --key-bg: #f0f0f0;
+
+    --key-gap: 0.8rem;
+    --key-font-size: 1.5rem;
+    --key-font-weight: 600;
+    --key-border-radius: 0.8rem;
+    --key-padding: 0.5rem;
+    --key-min-width: 4.5rem;
 }
 
 [data-theme='dark'] {
     --key-bg: #444;
 }
 
+@media screen and (max-width: 996px) {
+    :root {
+        --key-gap: 0.6rem;
+        --key-font-size: 1.3rem;
+        --key-font-weight: 500;
+        --key-border-radius: 0.6rem;
+        --key-padding: 0.5rem;
+        --key-min-width: 4rem;
+    }
+}
 
 .shortcutList {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: var(--key-gap);
     user-select: none;
 
     .item {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 0.8rem;
+        gap: var(--key-gap);
 
         .key {
             display: contents;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: var(--key-font-size);
+            font-weight: var(--key-font-weight);
 
             :where(& > :first-child) {
-                border-radius: 0.8rem;
-                padding: 0.5rem;
-                min-width: 4.5rem;
+                border-radius: var(--key-border-radius);
+                padding: var(--key-padding);
+                min-width: var(--key-min-width);
                 text-align: center;
                 background-color: var(--key-bg);
+                text-wrap: nowrap;
 
                 &:empty {
                     display: none;
