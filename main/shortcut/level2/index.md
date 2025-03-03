@@ -131,7 +131,7 @@ import { TextEditor, Browser, ItemList, RichTextEditor, DesignTool, VSCode } fro
   mac={"Cmd + ["}
 />
 
-![Indent](./img/indent.gif)
+![Outdent](./img/outdent.gif)
 
 ## インデントを下げる
 
@@ -144,7 +144,7 @@ import { TextEditor, Browser, ItemList, RichTextEditor, DesignTool, VSCode } fro
   mac={"Cmd + ]"}
 />
 
-![Outdent](./img/outdent.gif)
+![Indent](./img/indent.gif)
 
 ## 上にカーソル追加
 
