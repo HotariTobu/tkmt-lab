@@ -75,7 +75,7 @@ S4は様々なシミュレーションを行うための汎用的なシミュレ
 そうですね。
 右も左もわからないよちよち歩きのひよこちゃんたちに、すごく有用なものなんじゃないかなと思います。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3JM6sxJ8IO0?si=Xdyup546vdgaZJxq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{ display: "block", marginInline: "auto" }} />
+<iframe src="https://www.youtube.com/embed/3JM6sxJ8IO0?si=Xdyup546vdgaZJxq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{ display: "block", width: "100%", aspectRatio: "auto 560 / 315" }} />
 
 ## S4はわかりづらい
 
