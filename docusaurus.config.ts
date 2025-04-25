@@ -161,6 +161,10 @@ const config: Config = {
           label: "プログラムの効率化 承りマス",
           href: "https://docs.google.com/forms/d/e/1FAIpQLSe5GL1dZgazBUQvkUtUoi_ooUsFdkifAR-x9GwibA_My7X_5A/viewform?usp=sf_link",
         },
+        {
+          label: "Learn Git Branching",
+          href: "https://learngitbranching.js.org/",
+        },
         // {
         //   title: 'Docs',
         //   items: [
